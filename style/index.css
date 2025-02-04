@@ -1,14 +1,15 @@
 body {
-    background-color: white; /* Soft pink background color */
-  }
-  .photo-container {
+    background-color: #121212; /* Dark background color */
+    color: #ffffff; /* Light text color */
+}
+.photo-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
     padding: 20px;
-  }
-  .photo {
+}
+.photo {
     /* Add your image styling here */
     width: 250px;
     height: 250px;
@@ -18,12 +19,13 @@ body {
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     object-fit: cover; /* Preserve aspect ratio and cover the container */
-  }
-  .photo:hover {
+    border: 2px solid #ffffff; /* Light border for better visibility */
+}
+.photo:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Improved shadow on hover */
-  }
-  .lightbox-container {
+}
+.lightbox-container {
     display: none;
     position: fixed;
     top: 0;
@@ -34,27 +36,27 @@ body {
     z-index: 9999;
     justify-content: center;
     align-items: center;
-  }
-  .lightbox-image {
+}
+.lightbox-image {
     max-width: 80%;
     max-height: 80%;
     border-radius: 10px;
-  }
-  .close-button {
+}
+.close-button {
     position: absolute;
     top: 10px;
     right: 10px;
     color: #fff;
     font-size: 20px;
     cursor: pointer;
-  }
-  
-  /* Responsive Design */
-  @media only screen and (max-width: 1000px) {
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 1000px) {
     font-family: cursive;
     .photo {
-      width: calc(100% - 40px); /* Adjust the size according to your preference */
-      height: auto;
-      max-width: 100%; /* Adjust the maximum size for small screens */
+        width: calc(100% - 40px); /* Adjust the size according to your preference */
+        height: auto;
+        max-width: 100%; /* Adjust the maximum size for small screens */
     }
-  }
+}
