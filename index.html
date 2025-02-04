@@ -9,16 +9,8 @@
     <center>
       <h1>Liam photos</h1>
     </center>
-    <div class="photo-container">
-      <!-- Replace 'your-photo.jpg' with your actual image file name. Duplicate or modify as needed. -->
-      <img
-        loading="lazy"
-        class="photo"
-        src="photos/your-photo.jpg"
-        alt="Photo"
-        onclick="openLightbox('static/photos/your-photo.jpg')"
-        oncontextmenu="return false;"
-      />
+    <div class="photo-container" id="photo-container">
+      <!-- Images will be dynamically loaded here -->
     </div>
 
     <div class="lightbox-container" onclick="closeLightbox()">
@@ -41,6 +33,32 @@
       function closeLightbox() {
         document.querySelector(".lightbox-container").style.display = "none";
       }
+
+      function loadImages() {
+        const container = document.getElementById('photo-container');
+        const imageExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+        const imageCount = 100;
+      
+        for (let i = 1; i <= imageCount; i++) {
+          imageExtensions.forEach(ext => {
+            const imgElement = document.createElement('img');
+            imgElement.className = 'photo';
+            imgElement.src = `photos/photo${i}.${ext}`;
+            imgElement.alt = 'Photo';
+            imgElement.loading = 'lazy';
+            imgElement.onerror = () => {
+              console.log(`Failed to load photos/photo${i}.${ext}`);
+              imgElement.remove();
+            };
+            imgElement.onclick = () => openLightbox(`photos/photo${i}.${ext}`);
+            imgElement.oncontextmenu = () => false;
+            container.appendChild(imgElement);
+          });
+        }
+      }
+      
+
+      document.addEventListener('DOMContentLoaded', loadImages);
     </script>
   </body>
 </html>
