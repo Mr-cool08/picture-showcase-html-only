@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Photos</title>
+    <link rel="stylesheet" type="text/css" href="style/index.css" />
+  </head>
+  <body>
+    <center>
+      <h1>Liam photos</h1>
+    </center>
+    <div class="photo-container">
+      <!-- Replace 'your-photo.jpg' with your actual image file name. Duplicate or modify as needed. -->
+      <img
+        loading="lazy"
+        class="photo"
+        src="photos/your-photo.jpg"
+        alt="Photo"
+        onclick="openLightbox('static/photos/your-photo.jpg')"
+        oncontextmenu="return false;"
+      />
+    </div>
+
+    <div class="lightbox-container" onclick="closeLightbox()">
+      <span class="close-button">&times;</span>
+      <img
+        class="lightbox-image"
+        id="lightbox-img"
+        src=""
+        alt="Full Image"
+        oncontextmenu="return false;"
+      />
+    </div>
+
+    <script>
+      function openLightbox(imageSrc) {
+        document.getElementById("lightbox-img").src = imageSrc;
+        document.querySelector(".lightbox-container").style.display = "flex";
+      }
+
+      function closeLightbox() {
+        document.querySelector(".lightbox-container").style.display = "none";
+      }
+    </script>
+  </body>
+</html>
