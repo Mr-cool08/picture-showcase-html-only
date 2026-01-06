@@ -10,9 +10,16 @@ def rename_photos(directory):
         new_name = f"photo{index}.{ext}"
         old_path = os.path.join(directory, filename)
         new_path = os.path.join(directory, new_name)
+
+        # Increment index until a unique name is found
+        while os.path.exists(new_path):
+            index += 1
+            new_name = f"photo{index}.{ext}"
+            new_path = os.path.join(directory, new_name)
+
         os.rename(old_path, new_path)
         print(f"Renamed {old_path} to {new_path}")
 
 if __name__ == "__main__":
-    photos_directory = "C:/Users/liam suorsa/programmerings filer/python/picture showcase/photos"
+    photos_directory = "C:\\Users\\Admin\\programmings filer\\python\\picture showcase\\photos"
     rename_photos(photos_directory)
